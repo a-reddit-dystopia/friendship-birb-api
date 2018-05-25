@@ -1,5 +1,7 @@
 module Api
   class ApiController < ActionController::Base
+    include ActionController::MimeResponds
+
     before_action :verify_dumb_token
     respond_to :json
 
