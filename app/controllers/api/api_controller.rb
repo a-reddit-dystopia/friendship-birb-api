@@ -1,16 +1,26 @@
 module Api
-  class ApiController < ActionController::Base
+  class Unauthorized < StandardError; end
+
+  class ApiController < ActionController::API
     include ActionController::MimeResponds
 
     before_action :verify_dumb_token
-    respond_to :json
+
+    rescue_from Unauthorized, with: :unauthorized
 
     protected
 
-    def verify_dumb_token
-      elroy_token = request.headers['HTTP_AUTHORIZATION'].split('Elroy ')[1]
+    def unauthorized(exception)
+      render json: { reference_id: request.uuid, errors: ['Unauthorized'] }, status: 401
+    end
 
-      return elroy_token == ENV['ELROY']
+    def verify_dumb_token
+      auth_header = request.headers['HTTP_AUTHORIZATION'] || ''
+      elroy_token = auth_header.split('Bearer ')[1]
+
+      if elroy_token != ENV['ELROY']
+        raise Unauthorized
+      end
     end
   end
 end
