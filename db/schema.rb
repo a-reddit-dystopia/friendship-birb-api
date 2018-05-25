@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_25_192302) do
     t.string "wow_name"
     t.string "wow_server"
     t.string "status", default: "needs_birb"
-    t.date "status_date"
+    t.datetime "status_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

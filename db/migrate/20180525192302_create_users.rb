@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :wow_name
       t.string :wow_server
       t.string :status, default: 'needs_birb'
-      t.date :status_date
+      t.datetime :status_date
 
       t.timestamps
     end
