@@ -1,6 +1,7 @@
 module Api
   class ApiController < ActionController::Base
     before_filter :verify_dumb_token
+    respoond_to :json
 
     protected
 
