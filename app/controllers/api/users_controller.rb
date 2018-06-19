@@ -6,8 +6,12 @@ module Api
     end
 
     def create
-      user = User.create(create_params)
-      render json: UserSerializer.new(user).serialized_json, status: 201
+      user = User.new(create_params)
+      if user.save
+        render json: UserSerializer.new(user).serialized_json, status: 201
+      else
+        render json: {error: "duplicate!" }, status: 422
+      end
     end
 
     def update
