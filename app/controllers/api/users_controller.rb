@@ -13,7 +13,7 @@ module Api
     protected
 
     def user_params
-      params.require(:user).permit(:discord_name, :wow_name, :wow_server, :status)
+      params.require(:user).permit(:discord_name, :wow_name, :wow_server, :status, :status_date)
     end
   end
 end
