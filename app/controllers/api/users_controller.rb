@@ -1,7 +1,7 @@
 module Api
   class UsersController < ApiController
     def index
-      users = User.all
+      users = User.where(status: 'active')
       render json: UserSerializer.new(users).serialized_json, status: 200
     end
 
