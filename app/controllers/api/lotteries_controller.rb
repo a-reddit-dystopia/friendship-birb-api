@@ -6,7 +6,7 @@ module Api
 
       amount > total ? amount = total : amount
 
-      users = User.where(status: 'active').limit(amount).order("RANDOM()").first
+      users = User.where(status: 'active').limit(amount).order("RANDOM()")
       if users.length > 0
         users.each do |user|
           lottery = Lottery.create(user_id: user.id)
