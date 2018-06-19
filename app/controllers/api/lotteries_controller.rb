@@ -2,7 +2,7 @@ module Api
   class LotteriesController < ApiController
     def create
       user = User.where(status: 'active').limit(1).order("RANDOM()").first
-      if user?
+      if user.present?
         lottery = Lottery.create(user_id: user.id)
         user.update(status: 'inactive', status_date: DateTime.current)
 
