@@ -1,7 +1,11 @@
 module Api
   class UsersController < ApiController
     def index
-      render json: { hooray: 'yay' }, status: 200
+      users = User.all
+      render json: users, status: 200
+    end
+
+    def create
     end
   end
 end
