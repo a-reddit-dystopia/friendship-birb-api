@@ -1,7 +1,7 @@
 module Api
   class LotteriesController < ApiController
     def create
-      user = User.where(status: 'active').order('RANDOM()').offset(1).first
+      user = User.where(status: 'active').limit(1).order("RANDOM()").first
       lottery = Lottery.create(user_id: user.id)
       user.update(status: 'inactive', status_date: DateTime.current)
 
