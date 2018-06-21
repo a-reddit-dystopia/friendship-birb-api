@@ -1,1 +1,21 @@
 <h1>Screw you cow, Ruby is beautiful</h1>
+
+<table class="pure-table">
+    <thead>
+        <tr>
+            <th>Discord tag</th>
+            <th>Character</th>
+            <th>Server</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      <%= @users.each do |user| %>
+        <tr>
+            <td>user.discord_tag</td>
+            <td>user.wow_character</td>
+            <td>user.wow_server</td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

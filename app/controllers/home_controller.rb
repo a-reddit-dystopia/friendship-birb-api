@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    @users = User.where(status: 'active')
   end
 end
