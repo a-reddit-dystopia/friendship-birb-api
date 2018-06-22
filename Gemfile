@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem 'sprockets', '~> 3.7', '>= 3.7.2'
 gem 'fast_jsonapi'
 
 group :development, :test do
