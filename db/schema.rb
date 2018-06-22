@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_152045) do
+ActiveRecord::Schema.define(version: 2018_06_22_013701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_152045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "discord_id"
+    t.index ["status"], name: "index_users_on_status"
   end
 
 end
