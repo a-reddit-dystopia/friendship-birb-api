@@ -21,6 +21,17 @@ module Api
       render json: UserSerializer.new(user).serialized_json, status: 200
     end
 
+    def destroy
+      user = User.where(status: 'active').find_by_discord_id(params[:discord_id])
+
+      if user.destroy
+        render json: {status: 'ok'}, status: 200
+      else
+        render json {error: 'uh oh' }, status: 404 
+      end
+
+    end
+
     protected
 
     def create_params
