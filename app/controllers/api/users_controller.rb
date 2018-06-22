@@ -27,7 +27,7 @@ module Api
       if user.destroy
         render json: {status: 'ok'}, status: 200
       else
-        render json {error: 'uh oh' }, status: 404 
+        render json: {error: 'uh oh' }, status: 404 
       end
 
     end
