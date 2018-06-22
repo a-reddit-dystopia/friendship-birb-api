@@ -22,12 +22,12 @@ module Api
     end
 
     def destroy
-      user = User.where(status: 'active').find_by_discord_id(params[:discord_id])
+      user = User.where(status: 'active').find_by_discord_id(params[:id])
 
       if user.destroy
         render json: {status: 'ok'}, status: 200
       else
-        render json: {error: 'uh oh' }, status: 404 
+        render json: {error: 'uh oh' }, status: 404
       end
 
     end
